@@ -15,7 +15,7 @@ angular.module('app')
         if (data && data.status != 200) {
           $scope.app.message =  'Você não está autorizado!';
         } else {
-          $cookies.put('Tokiuz', 'Token ' + data.data.Tokiuz); 
+          $cookies.put('Tokiuz', data.data.Tokiuz); 
 
           window.location.href = '/#!/painel'
         }
