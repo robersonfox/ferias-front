@@ -1,0 +1,22 @@
+<div class="row marketing">
+  <h4>Informe usuário e senha</h4>
+
+  <form data-ng-submit="logar(u)">
+    <p>
+      <input type="text" data-ng-model="u.login" placeholder="Usuário">
+    </p>
+    <p>
+      <input type="password" data-ng-model="u.senha" placeholder="Senha">
+    </p>
+    <p><input class="btn" type="submit" value="Logar"> </p>
+  </form>
+
+  <br>
+  <h4>Cadastrar</h4>
+  <p>
+    Acesse a área de cadastro <a href="#/cadastrar">aqui</a>
+  </p>
+
+  <h4></h4>
+  <p data-ng-show='app.message'><span class="alert alert-danger">{{app.message}}</span></p>
+</div>
