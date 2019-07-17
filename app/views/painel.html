@@ -1,4 +1,11 @@
 <div data-ng-init="init()">
+    <p  class="alert alert-info" data-ng-show='app.message'><span>{{app.message}}</span>
+        <a data-ng-click="app.message=''" class="glyphicon glyphicon-remove" href=""  style="float: right"></a>
+    </p>
+    
+    <div data-ng-include="'views/partials/menuPainel.html'"></div>
+    
+    <div data-ng-if="app.menu[0]==1" data-ng-include="'views/partials/listaFuncionarios.html'"></div>
 
-adsasd
+    <div data-ng-if="app.menu[1]==1" data-ng-include="'views/partials/ferias.html'"></div>
 </div>

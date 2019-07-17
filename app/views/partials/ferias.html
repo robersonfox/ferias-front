@@ -1,0 +1,28 @@
+<div data-ng-init="getAllFerias()">
+<h1>Férias</h1>
+
+    <table class="table table-striped"> 
+        <header>
+            <tr>
+                <th>Matrícula</th>
+                <th>Funcionário</th>
+                <th>Equipe</th>
+                <th>Contratação</th>
+                <th>Férias Início</th>
+                <th>Férias Fim</th>
+                <th></th>
+            </tr>
+        </header>
+        <body>
+            <tr data-ng-repeat="f in ferias track by $index">
+                <td>{{f.pessoa.matricula}}</td>
+                <td>{{f.pessoa.nome}}</td>
+                <td>{{f.pessoa.equipe.nome}}</td>
+                <td>{{f.pessoa.dataContratacao | date: 'dd/MM/yyyy'}}</td>
+                <td>{{f.dataInicio | date: 'dd/MM/yyyy'}}</td>
+                <td>{{f.dataFim | date: 'dd/MM/yyyy'}}</td>
+                <td><a class="glyphicon glyphicon-remove" data-ng-click="removerFerias(f)" href="" title="Remover esse período?"></a></td>
+            </tr>
+        </body>
+    </table>
+</div>
