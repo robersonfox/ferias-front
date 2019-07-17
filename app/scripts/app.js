@@ -17,7 +17,9 @@ var app = angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $httpProvider) {
+    $httpProvider.defaults.headers.common['Authorization'] = $.cookie('Tokiuz') ;
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

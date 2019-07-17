@@ -3,10 +3,10 @@
 
   <form data-ng-submit="logar(u)">
     <p>
-      <input type="text" data-ng-model="u.login" placeholder="Usuário">
+      <input type="text" data-ng-model="u.email" placeholder="Login" required>
     </p>
     <p>
-      <input type="password" data-ng-model="u.senha" placeholder="Senha">
+      <input type="password" data-ng-model="u.senha" placeholder="Senha" required>
     </p>
     <p><input class="btn" type="submit" value="Logar"> </p>
   </form>
