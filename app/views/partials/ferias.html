@@ -1,7 +1,7 @@
-<div data-ng-init="getAllFerias()">
-<h1>Férias</h1>
+<div>
+<h1>Funcionários em Férias</h1>
 
-    <table class="table table-striped"> 
+    <table data-ng-init="getAllFerias()" class="table table-striped table-hover"> 
         <header>
             <tr>
                 <th>Matrícula</th>
@@ -22,6 +22,41 @@
                 <td>{{f.dataInicio | date: 'dd/MM/yyyy'}}</td>
                 <td>{{f.dataFim | date: 'dd/MM/yyyy'}}</td>
                 <td><a class="glyphicon glyphicon-remove" data-ng-click="removerFerias(f)" href="" title="Remover esse período?"></a></td>
+            </tr>
+        </body>
+    </table>
+
+    <h1>Funcionários que sairão em férias</h1>
+    <div>
+        <label>Em </label>
+
+        <select data-ng-model="ferias.sairPeriodo" data-ng-change="funcionarioSairaoFerias(ferias.sairPeriodo)">
+            <option value="1">1 mês</option>
+            <option value="2">2 meses</option>
+            <option value="3">3 meses</option>
+            <option value="4">4 meses</option>
+            <option value="5">5 meses</option>
+        </select>
+    </div>
+    <table data-ng-init="funcionarioSairaoFerias()" class="table table-striped"> 
+        <header>
+            <tr>
+                <th>Matrícula</th>
+                <th>Funcionário</th>
+                <th>Equipe</th>
+                <th>Contratação</th>
+                <th>Férias Início</th>
+                <th>Férias Fim</th>
+            </tr>
+        </header>
+        <body>
+            <tr data-ng-repeat="f in funcionariosAusentesEm track by $index">
+                <td>{{f.matricula}}</td>
+                <td>{{f.nome}}</td>
+                <td>{{f.equipe.nome}}</td>
+                <td>{{f.dataContratacao | date: 'dd/MM/yyyy'}}</td>
+                <td>{{f.ferias[0].dataInicio | date: 'dd/MM/yyyy'}}</td>
+                <td>{{f.ferias[0].dataFim | date: 'dd/MM/yyyy'}}</td>
             </tr>
         </body>
     </table>

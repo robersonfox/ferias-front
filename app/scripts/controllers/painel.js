@@ -6,9 +6,19 @@ angular.module('app').controller('PainelCtrl', ['$scope', 'painelService', funct
     $scope.app.menu = [0, 1, 0];
 
     $scope.ferias = [];
+    $scope.ferias.sairPeriodo = 1;
+    $scope.funcionarios = [];
 
-    $scope.init = function () {
+    $scope.init = function () {}
 
+    $scope.getAllFuncionarios = function() {
+        painelService.getAllFuncionarios((data) => {
+            if (data && data.status == 200) {
+                $scope.funcionarios = data.data;
+            } else {
+                $scope.app.message =  'Não foi possível carregar a listagem. ' + data.data.error; 
+            }
+        })
     }
 
     $scope.getAllFerias = function () {
@@ -18,6 +28,17 @@ angular.module('app').controller('PainelCtrl', ['$scope', 'painelService', funct
             else
                 $scope.app.message =  'Não foi possível carregar a listagem. ' + data.data.error; 
 
+        })
+    }
+
+    $scope.funcionarioSairaoFerias = (p) => {
+        debugger
+        p = p == null ? 1 : p;
+
+        painelService.funcionarioSairaoFerias(p, (data) => {
+            if (data && data.status == 200) {
+                $scope.funcionariosAusentesEm = data.data;
+            }
         })
     }
 

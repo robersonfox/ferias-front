@@ -2,6 +2,19 @@
 
 angular.module('app').service('painelService', function ($http) {
     return {
+
+        getAllFuncionarios: (callback) => {
+            $http.get('/rest/');
+        },
+
+        funcionarioSairaoFerias: (periodo, callback) => {
+            $http.get('/rest/pessoa/sairaodeferias/' + periodo)
+            .then(
+                (data) => callback(data), 
+                (err) => callback(err) 
+            );
+        },
+
         getAllFerias: function (callback) {
             $http.get('/rest/ferias')
                 .then(
